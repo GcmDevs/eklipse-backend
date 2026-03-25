@@ -1,0 +1,18 @@
+# compiled output
+/.vscode
+/node_modules
+/.env
+.agents
+skill.md
+skills-lock.json
+/rsa
+/ignored
+/private
+/public
+/dist
+/general/dist
+/hospitalizacion/dist
+/historia-clinica/dist
+/facturacion/dist
+/cartera/dist
+/inventario/dist
