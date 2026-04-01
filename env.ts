@@ -1,14 +1,14 @@
 import * as dotenv from 'dotenv';
-dotenv.config({ path: './.env' });
+dotenv.config({ path: '../.env' });
 
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 
 const CONNECT_WITH_DB = true;
-const PRODUCTION = false;
-const IS_HTTPS = false;
+const PRODUCTION = true;
+const IS_HTTPS = true;
 const PRODUCTION_WITH_HTTP = false;
 
-const SHOW_DOCS = true;
+const SHOW_DOCS = false;
 
 const DEV_PORT_DB = 1433;
 
