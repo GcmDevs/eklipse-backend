@@ -27,5 +27,12 @@
       "@inn/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*", "../@common/**/*"]
+  "include": [
+    "src/**/*",
+    "@common/**/*",
+    "@types/**/*",
+    "@orm/**/*",
+    "authorities/**/*",
+    "../@common/**/*"
+  ]
 }
