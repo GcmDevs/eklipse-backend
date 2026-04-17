@@ -3,8 +3,8 @@ import * as fs from 'fs';
 
 const RSA = {
   ids: {
-    publicKey: new NodeRSA(fs.readFileSync('./rsa/ids/public.pem', 'utf8')),
-    privateKey: new NodeRSA(fs.readFileSync('./rsa/ids/private.pem', 'utf8')),
+    publicKey: new NodeRSA(fs.readFileSync('../rsa/ids/public.pem', 'utf8')),
+    privateKey: new NodeRSA(fs.readFileSync('../rsa/ids/private.pem', 'utf8')),
   },
 };
 
