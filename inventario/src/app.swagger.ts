@@ -1,8 +1,10 @@
 import { INestApplication } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { SumPacModule } from './documentos/suministros-paciente/module';
 
 const config = [
   // --- AVOID NOWRAP --- //
+  { name: 'Suministros paciente', url: 'docs/sumpac', version: `1.0`, modules: [SumPacModule] },
 ];
 
 export const initSwagger = (app: INestApplication) => {
