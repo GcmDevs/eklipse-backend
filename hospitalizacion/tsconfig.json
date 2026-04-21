@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "rootDir": "..",
+    "outDir": "./dist",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@env": ["../env"],
+      "@rsa/*": ["../rsa/*"],
+      "@common/*": ["../@common/*"],
+      "@hpn/authorities": ["./authorities"],
+      "@hpn/types/*": ["./@types/*"],
+      "@hpn/orm/*": ["./@orm/*"],
+      "@hpn/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "@common/**/*",
+    "@types/**/*",
+    "@orm/**/*",
+    "authorities/**/*",
+    "../@common/**/*"
+  ]
+}
