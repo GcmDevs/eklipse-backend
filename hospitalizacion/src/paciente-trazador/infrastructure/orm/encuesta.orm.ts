@@ -11,15 +11,12 @@ export class PacTrazEncuestaOrm {
   @Column({ name: 'ADNINGRESO' })
   ingresoId: number;
 
-  @Column({ name: 'HPNESTANC' })
-  estanciaId: number;
-
   @Column({ name: 'GENUSUARIO' })
   usuarioId: number;
 
   @Column({ name: 'FECHACREACION' })
   fechaCreacion: Date;
 
-  @Column({ name: 'OBSERVACION' })
+  @Column({ name: 'OBSERVACION', nullable: true })
   observacion: string;
 }

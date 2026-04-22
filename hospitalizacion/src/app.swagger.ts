@@ -1,8 +1,10 @@
 import { INestApplication } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { PacTrazModule } from './paciente-trazador/module';
 
 const config = [
   // --- AVOID NOWRAP --- //
+  { name: 'Paciente trazador', url: 'docs/pactraz', version: `1.0`, modules: [PacTrazModule] },
 ];
 
 export const initSwagger = (app: INestApplication) => {

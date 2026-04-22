@@ -1,10 +1,18 @@
 import { Entity, PrimaryGeneratedColumn, Column, JoinColumn, OneToOne } from 'typeorm';
 import { PacTrazPreguntaOrm } from './pregunta.orm';
+import { PacTrazEncuestaOrm } from './encuesta.orm';
 
 @Entity({ name: 'EKINNPACTRAZENCRESPUES' })
 export class PacTrazRespuestaOrm {
   @PrimaryGeneratedColumn({ name: 'OID' })
   id: number;
+
+  @Column({ name: 'EKINNPACTRAZENCUESTA' })
+  encuestaId: number;
+
+  @OneToOne(() => PacTrazEncuestaOrm)
+  @JoinColumn({ name: 'EKINNPACTRAZENCUESTA', referencedColumnName: 'id' })
+  encuesta: PacTrazEncuestaOrm;
 
   @Column({ name: 'EKINNPACTRAZENCPREGUN' })
   preguntaId: number;
@@ -16,6 +24,6 @@ export class PacTrazRespuestaOrm {
   @Column({ name: 'RESBOOLEAN' })
   respuesta: boolean;
 
-  @Column({ name: 'OBSERVACION' })
+  @Column({ name: 'OBSERVACION', nullable: true })
   observacion: string;
 }
