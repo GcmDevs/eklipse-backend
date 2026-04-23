@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 import { _PrivSecRoleOrm } from './role.orm';
 import { _PrivSecAuthOrm } from './authority.orm';
-import { RSAServices } from '@common/application/services';
+import { RSAServices } from '../../application/services';
 
 @Entity('GENUSUARIO')
 export class _PrivSecUserOrm {
@@ -31,6 +31,9 @@ export class _PrivSecUserOrm {
 
   @Column({ name: 'USUESTADO' })
   statusCode: number;
+
+  @Column({ name: 'USUULTAUT' })
+  lastAuth: Date;
 
   @ManyToMany(() => _PrivSecAuthOrm, authority => authority.users)
   @JoinTable({
