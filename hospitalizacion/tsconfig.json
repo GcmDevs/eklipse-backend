@@ -21,9 +21,9 @@
       "@env": ["../env"],
       "@rsa/*": ["../rsa/*"],
       "@common/*": ["../@common/*"],
-      "@hpn/authorities": ["./authorities"],
-      "@hpn/types/*": ["./@types/*"],
-      "@hpn/orm/*": ["./@orm/*"],
+      "@authorities": ["./authorities"],
+      "@ctypes/*": ["./@types/*"],
+      "@orm/*": ["./@orm/*"],
       "@hpn/*": ["./src/*"]
     }
   },
