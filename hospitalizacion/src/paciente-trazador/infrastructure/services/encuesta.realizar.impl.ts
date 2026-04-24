@@ -27,8 +27,10 @@ export class RealizarEncuestaImpl extends BaseSource {
         encuesta.usuarioId = this.auth.id;
         encuesta.fechaCreacion = new Date();
         encuesta.observacion = body.observacionEncuesta || null;
-        encuesta = await encuestaRp.save(encuesta);
       }
+
+      encuesta.fechaActualizacion = new Date();
+      encuesta = await encuestaRp.save(encuesta);
 
       const pregunta = await preguntaRp.findOne({ where: { id: body.preguntaId } });
       if (!pregunta) throw new Error('Pregunta no encontrada');

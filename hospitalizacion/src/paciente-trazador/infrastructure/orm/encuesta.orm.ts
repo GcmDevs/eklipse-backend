@@ -17,6 +17,9 @@ export class PacTrazEncuestaOrm {
   @Column({ name: 'FECHACREACION' })
   fechaCreacion: Date;
 
-  @Column({ name: 'OBSERVACION', nullable: true })
+  @Column({ name: 'FECHAACTUALIZ' })
+  fechaActualizacion: Date;
+
+  @Column({ name: 'OBSERVACION' })
   observacion: string;
 }

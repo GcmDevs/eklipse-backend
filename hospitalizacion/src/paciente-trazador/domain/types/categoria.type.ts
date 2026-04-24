@@ -19,7 +19,7 @@ const GESTI_CONOCIM = new CategoriaPreguntaType(
   'GESTIÓN DEL CONOCIMIENTO: CALIDAD EN LOS REGISTROS CLINICOS'
 );
 
-export function rolDependienteTypeFactory(code: CategoriaPreguntaCode): CategoriaPreguntaType {
+export function categoriaPreguntaTypeFactory(code: CategoriaPreguntaCode): CategoriaPreguntaType {
   switch (code) {
     case 1:
       return INFO_PACIENTE;
