@@ -1,8 +1,10 @@
 import { INestApplication } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { PacientesModule } from './pacientes/module';
 
 const config = [
   // --- AVOID NOWRAP --- //
+  { name: 'Pacientes', url: 'docs/pacientes', version: `1.0`, modules: [PacientesModule] },
 ];
 
 export const initSwagger = (app: INestApplication) => {
