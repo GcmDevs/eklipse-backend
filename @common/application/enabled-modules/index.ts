@@ -1,4 +1,4 @@
-import { ADMIN_AUTHORITY } from '@common/application/constants';
+import { ADMIN_AUTHORITY } from '../../application/constants';
 import { enabledModules_GENERAL } from './general';
 
 

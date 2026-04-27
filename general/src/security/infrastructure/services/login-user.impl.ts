@@ -48,8 +48,6 @@ export class LoginUserImpl {
         );
       }
 
-      delete user.statusCode;
-
       const matchingPasswords = await cryptoServices.compareDimPassword(password, user.password);
 
       if (matchingPasswords) {
@@ -70,7 +68,7 @@ export class LoginUserImpl {
 
           if (!newLastAuth) {
             newLastAuth = new LastAuthOrm();
-            newLastAuth.user = user;
+            newLastAuth.userId = user.id;
             newLastAuth.timesFromMobile = fromMobile ? 1 : 0;
             newLastAuth.timesFromWeb = fromMobile ? 0 : 1;
             if (fromMobile) newLastAuth.lastAuthOnMobile = new Date();
@@ -86,7 +84,13 @@ export class LoginUserImpl {
               newLastAuth.lastAuthOnWeb = new Date();
             }
           }
-          if (ENVIRONMENTS.production) await lastAuthRp.save(newLastAuth);
+
+          user.lastAuth = new Date();
+
+          if (ENVIRONMENTS.production) {
+            await userRp.save(user);
+            await lastAuthRp.save(newLastAuth);
+          }
         }
 
         await qr.commitTransaction();
