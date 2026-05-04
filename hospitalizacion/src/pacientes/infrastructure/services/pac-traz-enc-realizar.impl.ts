@@ -1,9 +1,13 @@
 import { BadRequestException } from '@nestjs/common';
 import { BaseSource } from '@common/infrastructure/services';
-import { RespuestaPacienteTrazadorDto } from '@hpn/paciente-trazador/presentation/dtos';
-import { PacTrazEncuestaOrm, PacTrazPreguntaOrm, PacTrazRespuestaOrm } from '../orm';
+import { RespuestaPacienteTrazadorDto } from '@hpn/pacientes/presentation/dtos';
+import {
+  PacTrazEncuestaOrm,
+  PacTrazPreguntaOrm,
+  PacTrazRespuestaOrm,
+} from '../orm/pacientes-trazadores';
 
-export class RealizarEncuestaImpl extends BaseSource {
+export class PacTrazRealizarEncuestaImpl extends BaseSource {
   async execute(body: RespuestaPacienteTrazadorDto): Promise<boolean> {
     try {
       await this.qr.connect();

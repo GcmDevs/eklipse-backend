@@ -1,9 +1,17 @@
-import { Module, OnModuleInit } from '@nestjs/common';
-import { FetchPacientesHospitalizadosImpl } from './infrastructure/services';
-import { RecursosController } from './presentation/controllers';
+import { Module } from '@nestjs/common';
+import {
+  PacTrazAvancesEncuestaImpl,
+  FetchPacientesHospitalizadosImpl,
+  PacTrazRealizarEncuestaImpl,
+} from './infrastructure/services';
+import { EncuestaController, RecursosController } from './presentation/controllers';
 
 @Module({
-  controllers: [RecursosController],
-  providers: [FetchPacientesHospitalizadosImpl],
+  controllers: [RecursosController, EncuestaController],
+  providers: [
+    FetchPacientesHospitalizadosImpl,
+    PacTrazAvancesEncuestaImpl,
+    PacTrazRealizarEncuestaImpl,
+  ],
 })
 export class PacientesModule {}

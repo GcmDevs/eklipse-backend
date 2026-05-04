@@ -1,4 +1,4 @@
-import { CategoriaPreguntaCode } from '@hpn/paciente-trazador/domain/types';
+import { PacTrazCategoriaPreguntaCode } from '@hpn/pacientes/domain/types';
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity({ name: 'EKINNPACTRAZENCPREGUN' })
@@ -7,7 +7,7 @@ export class PacTrazPreguntaOrm {
   id: number;
 
   @Column({ name: 'CATEGORIA' })
-  categoriaCode: CategoriaPreguntaCode;
+  categoriaCode: PacTrazCategoriaPreguntaCode;
 
   @Column({ name: 'ENUMERADO' })
   enumerado: number;
