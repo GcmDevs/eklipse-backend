@@ -22,4 +22,7 @@ export class PacTrazEncuestaOrm {
 
   @Column({ name: 'OBSERVACION' })
   observacion: string;
+
+  @Column({ name: 'FINALIZADA' })
+  isFinalizada: boolean;
 }

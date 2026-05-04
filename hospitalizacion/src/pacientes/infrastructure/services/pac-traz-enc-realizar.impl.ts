@@ -29,15 +29,18 @@ export class PacTrazRealizarEncuestaImpl extends BaseSource {
         encuesta.pacienteId = body.pacienteId;
         encuesta.ingresoId = body.ingresoId;
         encuesta.usuarioId = this.auth.id;
+        encuesta.isFinalizada = body.isFinalizada;
         encuesta.fechaCreacion = new Date();
-        encuesta.observacion = body.observacionEncuesta || null;
+        encuesta.observacion = body.observacionEncuesta;
       }
 
       encuesta.fechaActualizacion = new Date();
       encuesta = await encuestaRp.save(encuesta);
 
-      const pregunta = await preguntaRp.findOne({ where: { id: body.preguntaId } });
-      if (!pregunta) throw new Error('Pregunta no encontrada');
+      if (body.preguntaId) {
+        const pregunta = await preguntaRp.findOne({ where: { id: body.preguntaId } });
+        if (!pregunta) throw new Error('Pregunta no encontrada');
+      }
 
       respuesta = await respuestaRp.findOne({
         where: { preguntaId: body.preguntaId, encuestaId: encuesta.id },

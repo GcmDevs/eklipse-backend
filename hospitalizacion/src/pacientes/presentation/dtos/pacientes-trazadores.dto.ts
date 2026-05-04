@@ -12,6 +12,7 @@ export class RespuestaPacienteTrazadorDto {
 
   @ApiProperty()
   @IsNumber()
+  @IsOptional()
   preguntaId: number;
 
   @ApiProperty()
@@ -28,4 +29,9 @@ export class RespuestaPacienteTrazadorDto {
   @IsString()
   @IsOptional()
   observacionEncuesta: string;
+
+  @ApiProperty()
+  @IsBoolean()
+  @IsOptional()
+  isFinalizada: boolean;
 }
