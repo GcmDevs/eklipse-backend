@@ -11,6 +11,8 @@ export const dataToPacienteTrazadorRes = (
 ): PacienteTrazadorRes => {
   const estadoCode = !encuesta ? 1 : encuesta.isFinalizada ? 3 : 2;
   return {
+    id: estancia.ingreso.paciente.id,
+    ingresoId: estancia.ingreso.id,
     nombreCompleto: estancia.ingreso.paciente.nombreCompleto,
     documento: {
       numero: estancia.ingreso.paciente.numeroDoc,

@@ -23,6 +23,10 @@ export class PacTrazRespuestaRes {
 
 export class PacienteTrazadorRes {
   @ApiProperty()
+  id: number;
+  @ApiProperty()
+  ingresoId: number;
+  @ApiProperty()
   nombreCompleto: string;
   @ApiProperty({ type: DocPacHospRes })
   documento: DocPacHospRes;

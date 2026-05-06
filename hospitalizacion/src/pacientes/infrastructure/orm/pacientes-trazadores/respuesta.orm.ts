@@ -2,23 +2,23 @@ import { Entity, PrimaryGeneratedColumn, Column, JoinColumn, OneToOne } from 'ty
 import { PacTrazPreguntaOrm } from './pregunta.orm';
 import { PacTrazEncuestaOrm } from './encuesta.orm';
 
-@Entity({ name: 'EKINNPACTRAZENCRESPUES' })
+@Entity({ name: 'EKHPNPACTRAZENCRESPUES' })
 export class PacTrazRespuestaOrm {
   @PrimaryGeneratedColumn({ name: 'OID' })
   id: number;
 
-  @Column({ name: 'EKINNPACTRAZENCUESTA' })
+  @Column({ name: 'EKHPNPACTRAZENCUESTA' })
   encuestaId: number;
 
   @OneToOne(() => PacTrazEncuestaOrm)
-  @JoinColumn({ name: 'EKINNPACTRAZENCUESTA', referencedColumnName: 'id' })
+  @JoinColumn({ name: 'EKHPNPACTRAZENCUESTA', referencedColumnName: 'id' })
   encuesta: PacTrazEncuestaOrm;
 
-  @Column({ name: 'EKINNPACTRAZENCPREGUN' })
+  @Column({ name: 'EKHPNPACTRAZENCPREGUN' })
   preguntaId: number;
 
   @OneToOne(() => PacTrazPreguntaOrm)
-  @JoinColumn({ name: 'EKINNPACTRAZENCPREGUN', referencedColumnName: 'id' })
+  @JoinColumn({ name: 'EKHPNPACTRAZENCPREGUN', referencedColumnName: 'id' })
   pregunta: PacTrazPreguntaOrm;
 
   @Column({ name: 'RESBOOLEAN' })

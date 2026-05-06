@@ -1,7 +1,7 @@
 import { PacTrazCategoriaPreguntaCode } from '@hpn/pacientes/domain/types';
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity({ name: 'EKINNPACTRAZENCPREGUN' })
+@Entity({ name: 'EKHPNPACTRAZENCPREGUN' })
 export class PacTrazPreguntaOrm {
   @PrimaryGeneratedColumn({ name: 'OID' })
   id: number;

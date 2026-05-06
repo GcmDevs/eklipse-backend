@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { ApiOperation, ApiQuery, ApiResponse } from '@nestjs/swagger';
 import { CommonGuards } from '@common/presentation/decorators';
 import { PacienteTrazadorRes, PacTrazRespuestaRes } from '@hpn/pacientes/application/responses';
@@ -36,7 +36,7 @@ export class EncuestaController {
     try {
       return await this._realizarEncuesta.execute(body);
     } catch (error: any) {
-      throw new Error(error.message);
+      throw new BadRequestException(error.message);
     }
   }
 

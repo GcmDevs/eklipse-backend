@@ -24,6 +24,10 @@ export class PacTrazRealizarEncuestaImpl extends BaseSource {
         where: { pacienteId: body.pacienteId, ingresoId: body.ingresoId },
       });
 
+      if (encuesta && encuesta.isFinalizada) {
+        throw new Error('Encuesta ya finalizada');
+      }
+
       if (!encuesta) {
         encuesta = new PacTrazEncuestaOrm();
         encuesta.pacienteId = body.pacienteId;
@@ -31,10 +35,18 @@ export class PacTrazRealizarEncuestaImpl extends BaseSource {
         encuesta.usuarioId = this.auth.id;
         encuesta.isFinalizada = body.isFinalizada;
         encuesta.fechaCreacion = new Date();
-        encuesta.observacion = body.observacionEncuesta;
+        encuesta.observacion = null;
       }
 
       encuesta.fechaActualizacion = new Date();
+
+      if (body.isFinalizada) {
+        encuesta.isFinalizada = true;
+        if (body.observacionEncuesta) {
+          encuesta.observacion = body.observacionEncuesta;
+        }
+      }
+
       encuesta = await encuestaRp.save(encuesta);
 
       if (body.preguntaId) {
@@ -53,7 +65,8 @@ export class PacTrazRealizarEncuestaImpl extends BaseSource {
       respuesta.encuestaId = encuesta.id;
       respuesta.respuesta = body.respuesta;
       respuesta.observacion = body.observacionPregunta || null;
-      respuesta = await respuestaRp.save(respuesta);
+
+      if (body.preguntaId !== 0) respuesta = await respuestaRp.save(respuesta);
 
       await this.qr.commitTransaction();
       return true;
