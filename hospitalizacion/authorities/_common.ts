@@ -11,5 +11,6 @@ export const HPN_MODULES = {
     TRIAGE: `${hpn}006`,
     APIS: `${hpn}007`,
     AUDITORIA: `${hpn}008`,
+    PACIENTES: `${hpn}009`,
   },
 };
