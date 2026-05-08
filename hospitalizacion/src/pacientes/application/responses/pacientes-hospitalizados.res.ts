@@ -1,5 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
 
+export class EpsRes {
+  @ApiProperty()
+  nombre: string;
+}
+
 export class DocPacHospRes {
   @ApiProperty()
   numero: string;
@@ -30,8 +35,8 @@ export class PacienteHospitalizadoRes {
   fechaNacimiento: Date;
   @ApiProperty()
   fechaIngreso: Date;
-  @ApiProperty()
-  eps: { nombre: string };
+  @ApiProperty({ type: EpsRes })
+  eps: EpsRes;
   @ApiProperty()
   ubicacion: UbicacionRes;
 }
