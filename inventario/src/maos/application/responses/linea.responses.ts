@@ -2,6 +2,9 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class ProveedorRes {
   @ApiProperty()
+  id: number;
+
+  @ApiProperty()
   codigo: string;
 
   @ApiProperty()

@@ -16,6 +16,7 @@ export const dataToLineaRes = (linea: LineaOrm, ofertas: OfertaOrm[]): LineaRes 
               return {
                 id: o.id,
                 proveedor: {
+                  id: o.proveedor.id,
                   codigo: o.proveedor.terNumDoc,
                   nombre: o.proveedor.nombreTercero,
                 },
