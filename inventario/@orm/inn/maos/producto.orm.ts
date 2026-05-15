@@ -17,24 +17,24 @@ export class ProductoOrm {
   @Column({ name: 'CANTIDAD' })
   cantidad: number;
 
-  @Column({ name: 'INNMOSSETLINEA' })
+  @Column({ name: 'INNMOSETLINEA' })
   lineaId: number;
 
   @ManyToOne(() => LineaOrm, linea => linea.productos)
-  @JoinColumn({ name: 'INNMOSSETLINEA' })
+  @JoinColumn({ name: 'INNMOSETLINEA' })
   linea: LineaOrm;
 
-  @Column({ name: 'INNMOSSETCLASIFI' })
+  @Column({ name: 'INNMOSETCLASIFI' })
   clasificacionId: number;
 
   @ManyToOne(() => ClasificacionOrm, clasifi => clasifi.productos)
-  @JoinColumn({ name: 'INNMOSSETCLASIFI' })
+  @JoinColumn({ name: 'INNMOSETCLASIFI' })
   clasificacion: ClasificacionOrm;
 
-  @Column({ name: 'INNMOSSET' })
+  @Column({ name: 'INNMOSET' })
   setId: number;
 
   @ManyToOne(() => SetOrm, set => set.productos)
-  @JoinColumn({ name: 'INNMOSSET' })
+  @JoinColumn({ name: 'INNMOSET' })
   set: SetOrm;
 }

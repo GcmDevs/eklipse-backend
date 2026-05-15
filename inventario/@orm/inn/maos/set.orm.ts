@@ -3,7 +3,7 @@ import { LineaOrm } from './set-linea.orm';
 import { ClasificacionOrm } from './set-clasificacion.orm';
 import { ProductoOrm } from './producto.orm';
 
-@Entity('INNMOSSET')
+@Entity('INNMOSET')
 export class SetOrm {
   @PrimaryGeneratedColumn({ name: 'OID' })
   id: number;
@@ -11,18 +11,18 @@ export class SetOrm {
   @Column({ name: 'NOMBRE' })
   nombre: string;
 
-  @Column({ name: 'INNMOSSETLINEA' })
+  @Column({ name: 'INNMOSETLINEA' })
   lineaId: number;
 
   @ManyToOne(() => LineaOrm, linea => linea.sets)
-  @JoinColumn({ name: 'INNMOSSETLINEA' })
+  @JoinColumn({ name: 'INNMOSETLINEA' })
   linea: LineaOrm;
 
-  @Column({ name: 'INNMOSSETCLASIFI' })
+  @Column({ name: 'INNMOSETCLASIFI' })
   clasificacionId: number;
 
   @ManyToOne(() => ClasificacionOrm, clasifi => clasifi.sets)
-  @JoinColumn({ name: 'INNMOSSETCLASIFI' })
+  @JoinColumn({ name: 'INNMOSETCLASIFI' })
   clasificacion: ClasificacionOrm;
 
   @Column({ name: 'ACTIVO' })

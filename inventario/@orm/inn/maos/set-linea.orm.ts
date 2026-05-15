@@ -3,7 +3,7 @@ import { ClasificacionOrm } from './set-clasificacion.orm';
 import { ProductoOrm } from './producto.orm';
 import { SetOrm } from './set.orm';
 
-@Entity('INNMOSSETLINEA')
+@Entity('INNMOSETLINEA')
 export class LineaOrm {
   @PrimaryGeneratedColumn({ name: 'OID' })
   id: number;
