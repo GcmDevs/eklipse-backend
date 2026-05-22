@@ -71,3 +71,17 @@ export class PacienteTrazadorRes {
   @ApiProperty()
   altaEstimada: string;
 }
+
+export class PacTrazEncuestadorRes {
+  @ApiProperty()
+  documento: string;
+  @ApiProperty()
+  nombreCompleto: string;
+}
+
+export class PacTrazAvancesEncuestaRes {
+  @ApiProperty({ type: PacTrazEncuestadorRes })
+  encuestador: PacTrazEncuestadorRes;
+  @ApiProperty({ type: PacTrazRespuestaRes, isArray: true })
+  respuestas: PacTrazRespuestaRes[];
+}
