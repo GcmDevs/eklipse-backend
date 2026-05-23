@@ -3,6 +3,15 @@ import { DocPacHospRes, EpsRes, UbicacionRes } from './pacientes-hospitalizados.
 import { PacTrazEncEstadoType } from '@hpn/pacientes/domain/types/pac-traz-enc-estado.type';
 import { BasicTypeRes } from '@common/domain/types';
 
+export class PazTrazCentroRes {
+  @ApiProperty()
+  id: number;
+  @ApiProperty()
+  codigo: string;
+  @ApiProperty()
+  nombre: string;
+}
+
 export class PacTrazPreguntaRes {
   @ApiProperty()
   categoria: string;
@@ -46,6 +55,8 @@ export class PacTrazUltimoDiagnosticoPrincipalRes {
 export class PacienteTrazadorRes {
   @ApiProperty()
   id: number;
+  @ApiProperty({ type: PazTrazCentroRes })
+  centro: PazTrazCentroRes;
   @ApiProperty()
   ingresoId: number;
   @ApiProperty()
