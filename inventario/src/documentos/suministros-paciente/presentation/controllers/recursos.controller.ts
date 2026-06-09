@@ -5,7 +5,7 @@ import { switchConn } from '@common/infrastructure/services';
 import { SRDCentroOrm } from '@inn/orm/shared-bd';
 import { PacienteHospitalizadoI, pacientesHospitalizadosQuery } from '../../infrastructure/queries';
 import { SuministroPacienteRecibidoOrm } from '@inn/orm/inn/documentos';
-import { In } from 'typeorm';
+import { In, IsNull } from 'typeorm';
 
 @ApiTags('Recursos')
 @Controller('v1/inn/suministros-paciente/recursos')
@@ -22,18 +22,14 @@ export class RecursosController {
       const ingresosIds = results.map(r => r.ingresoId);
 
       const suministrosRecibidos = await sumPacRecRp.find({
-        where: { ingresoId: In(ingresosIds) },
+        where: { ingresoId: In(ingresosIds), usuarioRecibeId: IsNull() },
       });
 
       results.map(r => {
         if (suministrosRecibidos.some(s => s.ingresoId === r.ingresoId)) {
           r.tieneSuministrosPorEntregar = true;
-        } else {
-          r.tieneSuministrosPorEntregar = false;
-        }
+        } else r.tieneSuministrosPorEntregar = false;
       });
-
-      console.log(suministrosRecibidos);
 
       return results;
     } catch (error: any) {
