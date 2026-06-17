@@ -1,5 +1,12 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { MedicamentoOrm } from './medicamento.orm';
+import { SolicitudOrm } from './solicitud.orm';
+import {
+  TiempoAdminCode,
+  UnidadCode,
+  VehiculoCode,
+  ViaAdministracionCode,
+} from '@inn/types/inn/central-mezclas';
 
 @Entity('EKINNCTMZMEDSEL')
 export class MedicamentoSeleccionOrm {
@@ -14,10 +21,10 @@ export class MedicamentoSeleccionOrm {
   medicamento: MedicamentoOrm;
 
   @Column({ name: 'UNIDAD' })
-  unidad: number;
+  unidadCode: UnidadCode;
 
   @Column({ name: 'VEHICULO' })
-  vehiculo: number;
+  vehiculoCode: VehiculoCode;
 
   @Column({ name: 'CONCENTRACION', length: 20 })
   concentracion: string;
@@ -29,8 +36,21 @@ export class MedicamentoSeleccionOrm {
   cantidad: number;
 
   @Column({ name: 'TIEMPOADMIN' })
-  tiempoAdministracion: number;
+  tiempoAdmin: number;
 
   @Column({ name: 'UNIDMEDTIEM' })
-  uniMedTiempoAdmin: number;
+  uniMedTiempoAdminCode: TiempoAdminCode;
+
+  @Column({ name: 'VIADMINI' })
+  viaAdministracionCode: ViaAdministracionCode;
+
+  @Column({ name: 'FECHAPLIC', type: 'timestamp' })
+  fechaAplicacion: Date;
+
+  @Column({ name: 'EKINNCTMZSOLI' })
+  solicitudId: number;
+
+  @ManyToOne(() => SolicitudOrm, solicitud => solicitud.seleccion)
+  @JoinColumn({ name: 'EKINNCTMZSOLI', referencedColumnName: 'id' })
+  solicitud: SolicitudOrm;
 }

@@ -1,21 +1,16 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { PacienteExternoOrm } from './paciente-externo.orm';
-import { SRDUsuarioExternoOrm } from '@inn/orm/shared-bd';
+import { EstadoCode, LineaCode, PrioridadCode } from '@inn/types/inn/central-mezclas';
+import { UsuarioOrm } from '@inn/orm/gen';
+import { MedicamentoSeleccionOrm } from './medicamento-seleccion.orm';
 
 @Entity('EKINNCTMZSOLI')
 export class SolicitudOrm {
   @PrimaryGeneratedColumn({ name: 'OID' })
   id: number;
 
-  @Column({ name: 'CONSECUTIVO' })
-  consecutivo: number;
-
   @Column({ name: 'GENUSUEXT' })
   usuarioExternoId: number;
-
-  @ManyToOne(() => SRDUsuarioExternoOrm)
-  @JoinColumn({ name: 'GENUSUEXT', referencedColumnName: 'id' })
-  usuarioExterno: SRDUsuarioExternoOrm;
 
   @Column({ name: 'EKINNCTMZPACEXT' })
   pacienteExternoId: number;
@@ -24,23 +19,27 @@ export class SolicitudOrm {
   @JoinColumn({ name: 'EKINNCTMZPACEXT', referencedColumnName: 'id' })
   pacienteExterno: PacienteExternoOrm;
 
+  @OneToMany(() => MedicamentoSeleccionOrm, medicamento => medicamento.solicitud)
+  seleccion: MedicamentoSeleccionOrm[];
+
   @Column({ name: 'LINEA' })
-  linea: number;
+  lineaCode: LineaCode;
 
   @Column({ name: 'ESTADO' })
-  estado: number;
+  estadoCode: EstadoCode;
 
   @Column({ name: 'PRIORIDAD' })
-  prioridad: number;
-
-  @Column({ name: 'FECHAPROGRAPLI', type: 'date' })
-  fechaProgramacionAplicacion: Date;
+  prioridadCode: PrioridadCode;
 
   @Column({ name: 'FECHACREA' })
   fechaCreacion: Date;
 
   @Column({ name: 'GENUSUARIO1', nullable: true })
   usuarioResponsableId: number;
+
+  @ManyToOne(() => UsuarioOrm)
+  @JoinColumn({ name: 'GENUSUARIO1', referencedColumnName: 'id' })
+  usuarioResponsable: UsuarioOrm;
 
   @Column({ name: 'GENUSUOBS', length: 500, nullable: true })
   usuResObs: string;

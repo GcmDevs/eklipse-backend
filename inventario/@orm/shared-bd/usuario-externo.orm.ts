@@ -11,6 +11,6 @@ export class SRDUsuarioExternoOrm {
   @Column({ name: 'NOMBRECOMPLETO' })
   nombreCompleto: string;
 
-  @Column({ name: 'PASSWORD' })
+  @Column({ name: 'PASSWORD', select: false })
   password: string;
 }
