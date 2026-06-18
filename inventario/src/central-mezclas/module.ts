@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { SolicitudesController } from './presentation/controllers';
+import { RecursosController, SolicitudesController } from './presentation/controllers';
 import { FetchSolicitudesImpl, CreateSolicitudImpl } from './infrastructure/services';
 
 @Module({
-  controllers: [SolicitudesController],
+  controllers: [RecursosController, SolicitudesController],
   providers: [FetchSolicitudesImpl, CreateSolicitudImpl],
 })
 export class CentralMezclasModule {}

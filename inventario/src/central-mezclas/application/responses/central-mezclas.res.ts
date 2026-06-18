@@ -100,3 +100,20 @@ export class CtMzSolicitudRes {
   @ApiProperty({ type: CtMzSeleccionRes, isArray: true })
   seleccion: CtMzSeleccionRes[];
 }
+
+export class CtMzTypesRes {
+  @ApiProperty({ type: CtmTypeRes, isArray: true })
+  estados: CtmTypeRes[];
+  @ApiProperty({ type: CtmTypeRes, isArray: true })
+  lineas: CtmTypeRes[];
+  @ApiProperty({ type: CtmTypeRes, isArray: true })
+  prioridades: CtmTypeRes[];
+  @ApiProperty({ type: CtmTypeRes, isArray: true })
+  tiemposAdministracion: CtmTypeRes[];
+  @ApiProperty({ type: CtmTypeRes, isArray: true })
+  unidades: CtmTypeRes[];
+  @ApiProperty({ type: CtmTypeRes, isArray: true })
+  vehiculos: CtmTypeRes[];
+  @ApiProperty({ type: CtmTypeRes, isArray: true })
+  viasAdministracion: CtmTypeRes[];
+}
