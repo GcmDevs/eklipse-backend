@@ -1,1 +1,1 @@
-export * from './central-mezclas.controller';
+export * from './solicitudes.controller';
