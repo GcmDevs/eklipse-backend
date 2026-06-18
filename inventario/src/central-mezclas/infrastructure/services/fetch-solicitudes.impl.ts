@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { BaseSource } from '@common/infrastructure/services';
 import { PacienteExternoOrm, SolicitudOrm } from '@inn/orm/inn/central-mezclas';
 import { dataToSolicitudRes } from '../factories';
-import { SRDUsuarioExternoOrm } from '@inn/orm/shared-bd';
+import { UsuarioExternoOrm } from '@inn/orm/gen';
 import { Between, In } from 'typeorm';
 
 @Injectable()
@@ -10,7 +10,7 @@ export class FetchSolicitudesImpl extends BaseSource {
   async execute(fechaInicio: Date, fechaFin: Date) {
     const solicitudRp = this.conn.getRepository(SolicitudOrm);
     const pacienteExternoRp = this.conn.getRepository(PacienteExternoOrm);
-    const usuExtRp = this.ekConn.getRepository(SRDUsuarioExternoOrm);
+    const usuExtRp = this.conn.getRepository(UsuarioExternoOrm);
 
     const solicitudes = await solicitudRp.find({
       where: { fechaCreacion: Between(fechaInicio, fechaFin) },

@@ -1,5 +1,5 @@
 import { SolicitudOrm } from '@inn/orm/inn/central-mezclas';
-import { SRDUsuarioExternoOrm } from '@inn/orm/shared-bd';
+import { UsuarioExternoOrm } from '@inn/orm/gen';
 import {
   estadoTypeFactory,
   lineaTypeFactory,
@@ -14,7 +14,7 @@ import { CtMzSeleccionRes, CtMzSolicitudRes } from '@inn/central-mezclas/applica
 
 export const dataToSolicitudRes = (
   data: SolicitudOrm,
-  usuarioExterno: SRDUsuarioExternoOrm,
+  usuarioExterno: UsuarioExternoOrm,
   pacExt: PacienteExternoOrm
 ): CtMzSolicitudRes => {
   return {
@@ -24,7 +24,7 @@ export const dataToSolicitudRes = (
     estado: estadoTypeFactory(data.estadoCode) as any,
     prioridad: prioridadTypeFactory(data.prioridadCode) as any,
     usuarioExterno: {
-      documento: usuarioExterno.numeroDocumento,
+      documento: usuarioExterno.documento,
       nombreCompleto: usuarioExterno.nombreCompleto,
     },
     usuarioResponsable: {
