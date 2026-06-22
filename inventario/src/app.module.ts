@@ -4,6 +4,7 @@ import { ENTITIES } from './app.entities';
 import { DocumentosModule } from './documentos/module';
 import { MAOSModule } from './maos/module';
 import { CentralMezclasModule } from './central-mezclas/module';
+import { PollaMundialistaModule } from './polla-mundialista/module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { CentralMezclasModule } from './central-mezclas/module';
     DocumentosModule,
     MAOSModule,
     CentralMezclasModule,
+    PollaMundialistaModule,
   ],
 })
 export class AppModule implements OnModuleInit {

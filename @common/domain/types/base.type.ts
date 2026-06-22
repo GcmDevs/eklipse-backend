@@ -22,10 +22,11 @@ export class CtmType<T> {
 
 export const DEFAULT_TYPE = new CtmType(-999, 'CODIGO NO VALIDO', 'CNV') as any;
 
-export class CtmTypeRes {
+export class BasicTypeRes {
   @ApiProperty()
   code: number;
-
   @ApiProperty()
   forHumans: string;
+  @ApiProperty()
+  abbreviation: string;
 }

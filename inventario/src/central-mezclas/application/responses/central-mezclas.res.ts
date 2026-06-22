@@ -1,4 +1,4 @@
-import { CtmTypeRes } from '@common/domain/types';
+import { BasicTypeRes } from '@common/domain/types';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CtMzUsuarioExternoRes {
@@ -41,14 +41,14 @@ export class CtMzSeleccionRes {
   @ApiProperty()
   nombre: string;
 
-  @ApiProperty({ type: CtmTypeRes })
-  linea: CtmTypeRes;
+  @ApiProperty({ type: BasicTypeRes })
+  linea: BasicTypeRes;
 
-  @ApiProperty({ type: CtmTypeRes })
-  unidad: CtmTypeRes;
+  @ApiProperty({ type: BasicTypeRes })
+  unidad: BasicTypeRes;
 
-  @ApiProperty({ type: CtmTypeRes })
-  vehiculo: CtmTypeRes;
+  @ApiProperty({ type: BasicTypeRes })
+  vehiculo: BasicTypeRes;
 
   @ApiProperty()
   concentracion: string;
@@ -62,14 +62,14 @@ export class CtMzSeleccionRes {
   @ApiProperty()
   tiempoAdmin: number;
 
-  @ApiProperty({ type: CtmTypeRes })
-  uniMedTiempoAdmin: CtmTypeRes;
+  @ApiProperty({ type: BasicTypeRes })
+  uniMedTiempoAdmin: BasicTypeRes;
 
   @ApiProperty()
   fechaAplicacion: Date;
 
-  @ApiProperty({ type: CtmTypeRes })
-  viaAdministracion: CtmTypeRes;
+  @ApiProperty({ type: BasicTypeRes })
+  viaAdministracion: BasicTypeRes;
 }
 
 export class CtMzSolicitudRes {
@@ -79,14 +79,14 @@ export class CtMzSolicitudRes {
   @ApiProperty()
   fechaCreacion: Date;
 
-  @ApiProperty({ type: CtmTypeRes })
-  linea: CtmTypeRes;
+  @ApiProperty({ type: BasicTypeRes })
+  linea: BasicTypeRes;
 
-  @ApiProperty({ type: CtmTypeRes })
-  estado: CtmTypeRes;
+  @ApiProperty({ type: BasicTypeRes })
+  estado: BasicTypeRes;
 
-  @ApiProperty({ type: CtmTypeRes })
-  prioridad: CtmTypeRes;
+  @ApiProperty({ type: BasicTypeRes })
+  prioridad: BasicTypeRes;
 
   @ApiProperty({ type: CtMzUsuarioExternoRes })
   usuarioExterno: CtMzUsuarioExternoRes;
@@ -102,18 +102,18 @@ export class CtMzSolicitudRes {
 }
 
 export class CtMzTypesRes {
-  @ApiProperty({ type: CtmTypeRes, isArray: true })
-  estados: CtmTypeRes[];
-  @ApiProperty({ type: CtmTypeRes, isArray: true })
-  lineas: CtmTypeRes[];
-  @ApiProperty({ type: CtmTypeRes, isArray: true })
-  prioridades: CtmTypeRes[];
-  @ApiProperty({ type: CtmTypeRes, isArray: true })
-  tiemposAdministracion: CtmTypeRes[];
-  @ApiProperty({ type: CtmTypeRes, isArray: true })
-  unidades: CtmTypeRes[];
-  @ApiProperty({ type: CtmTypeRes, isArray: true })
-  vehiculos: CtmTypeRes[];
-  @ApiProperty({ type: CtmTypeRes, isArray: true })
-  viasAdministracion: CtmTypeRes[];
+  @ApiProperty({ type: BasicTypeRes, isArray: true })
+  estados: BasicTypeRes[];
+  @ApiProperty({ type: BasicTypeRes, isArray: true })
+  lineas: BasicTypeRes[];
+  @ApiProperty({ type: BasicTypeRes, isArray: true })
+  prioridades: BasicTypeRes[];
+  @ApiProperty({ type: BasicTypeRes, isArray: true })
+  tiemposAdministracion: BasicTypeRes[];
+  @ApiProperty({ type: BasicTypeRes, isArray: true })
+  unidades: BasicTypeRes[];
+  @ApiProperty({ type: BasicTypeRes, isArray: true })
+  vehiculos: BasicTypeRes[];
+  @ApiProperty({ type: BasicTypeRes, isArray: true })
+  viasAdministracion: BasicTypeRes[];
 }
