@@ -101,6 +101,7 @@ export class FetchClasificacionImpl extends BaseSource {
     clasificacion.map((usuario, index) => (usuario.posicion = index + 1));
 
     return {
+      colaboradoresActivos: clasificacion.length,
       clasificacion: clasificacion.slice(0, 5),
       miPosicion: clasificacion.find(
         usuario => usuario.usuarioId === this.getTokenDecoded().user.id

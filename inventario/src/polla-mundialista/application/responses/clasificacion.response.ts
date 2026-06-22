@@ -30,6 +30,9 @@ export class ClasificacionUsuarioRes {
 }
 
 export class DefiClasifiRes {
+  @ApiProperty()
+  colaboradoresActivos: number;
+
   @ApiProperty({ type: ClasificacionUsuarioRes, isArray: true })
   clasificacion: ClasificacionUsuarioRes[];
 
