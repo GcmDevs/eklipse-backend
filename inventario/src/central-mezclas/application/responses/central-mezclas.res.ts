@@ -117,3 +117,31 @@ export class CtMzTypesRes {
   @ApiProperty({ type: BasicTypeRes, isArray: true })
   viasAdministracion: BasicTypeRes[];
 }
+
+export class CtMzCamaRes {
+  @ApiProperty()
+  id: number;
+
+  @ApiProperty()
+  codigo: string;
+
+  @ApiProperty()
+  nombre: string;
+}
+
+export class CtMzPacienteRes {
+  @ApiProperty()
+  id: number;
+
+  @ApiProperty()
+  cedula: string;
+
+  @ApiProperty()
+  nombreCompleto: string;
+
+  @ApiProperty()
+  fechaNacimiento: Date;
+
+  @ApiProperty({ type: CtMzCamaRes })
+  cama: CtMzCamaRes;
+}
