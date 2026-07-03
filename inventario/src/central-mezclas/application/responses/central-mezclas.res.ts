@@ -72,6 +72,14 @@ export class CtMzSeleccionRes {
   viaAdministracion: BasicTypeRes;
 }
 
+export class CtMzMedicamentoSeleccionRes {
+  @ApiProperty()
+  id: number;
+
+  @ApiProperty()
+  nombre: string;
+}
+
 export class CtMzSolicitudRes {
   @ApiProperty()
   id: number;

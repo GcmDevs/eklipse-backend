@@ -1,7 +1,14 @@
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { BadRequestException, Controller, Get, Param } from '@nestjs/common';
-import { CtMzTypesRes, CtMzPacienteRes } from '@inn/central-mezclas/application/responses';
-import { FetchPacientesByPatternImpl } from '../../infrastructure/services';
+import {
+  CtMzMedicamentoSeleccionRes,
+  CtMzTypesRes,
+  CtMzPacienteRes,
+} from '@inn/central-mezclas/application/responses';
+import {
+  FetchMedicamentosByPatternImpl,
+  FetchPacientesByPatternImpl,
+} from '../../infrastructure/services';
 import {
   ESTADOS_VALUES,
   LINEAS_VALUES,
@@ -15,7 +22,10 @@ import {
 @ApiTags('Recursos')
 @Controller('v1/inn/central-mezclas/recursos')
 export class RecursosController {
-  constructor(private _fetchPacientesByPattern: FetchPacientesByPatternImpl) {}
+  constructor(
+    private _fetchPacientesByPattern: FetchPacientesByPatternImpl,
+    private _fetchMedicamentosByPattern: FetchMedicamentosByPatternImpl
+  ) {}
 
   @ApiResponse({ status: 200, type: CtMzTypesRes, isArray: true })
   @Get('types')
@@ -36,10 +46,20 @@ export class RecursosController {
   }
 
   @ApiResponse({ status: 200, type: CtMzPacienteRes, isArray: true })
-  @Get('usuarios/:pattern')
-  async fetchUsuariosByPattern(@Param('pattern') pattern: string) {
+  @Get('pacientes/:pattern')
+  async fetchPacientesByPattern(@Param('pattern') pattern: string) {
     try {
       return await this._fetchPacientesByPattern.execute(pattern);
+    } catch (error: any) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  @ApiResponse({ status: 200, type: CtMzMedicamentoSeleccionRes, isArray: true })
+  @Get('medicamentos/:pattern')
+  async fetchMedicamentosByPattern(@Param('pattern') pattern: string) {
+    try {
+      return await this._fetchMedicamentosByPattern.execute(pattern);
     } catch (error: any) {
       throw new BadRequestException(error.message);
     }
