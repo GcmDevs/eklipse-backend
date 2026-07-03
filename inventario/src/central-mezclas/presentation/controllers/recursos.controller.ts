@@ -1,5 +1,6 @@
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { BadRequestException, Controller, Get, Param } from '@nestjs/common';
+import { BasicTypeRes } from '@common/domain/types';
 import {
   CtMzMedicamentoSeleccionRes,
   CtMzTypesRes,
@@ -15,6 +16,7 @@ import {
   PRIORIDADES_VALUES,
   TIEMPOS_ADMIN_VALUES,
   UNIDADES_VALUES,
+  VehiculoType,
   VEHICULOS_VALUES,
   VIAS_ADMINISTRACION_VALUES,
 } from '@inn/types/inn/central-mezclas';
@@ -60,6 +62,16 @@ export class RecursosController {
   async fetchMedicamentosByPattern(@Param('pattern') pattern: string) {
     try {
       return await this._fetchMedicamentosByPattern.execute(pattern);
+    } catch (error: any) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  @ApiResponse({ status: 200, type: BasicTypeRes, isArray: true })
+  @Get('vehiculos')
+  fetchVehiculos(): VehiculoType[] {
+    try {
+      return VEHICULOS_VALUES;
     } catch (error: any) {
       throw new BadRequestException(error.message);
     }
