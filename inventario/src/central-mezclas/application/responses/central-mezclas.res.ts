@@ -78,6 +78,9 @@ export class CtMzMedicamentoSeleccionRes {
 
   @ApiProperty()
   nombre: string;
+
+  @ApiProperty({ type: BasicTypeRes })
+  unidad: BasicTypeRes;
 }
 
 export class CtMzSolicitudRes {
@@ -112,16 +115,28 @@ export class CtMzSolicitudRes {
 export class CtMzTypesRes {
   @ApiProperty({ type: BasicTypeRes, isArray: true })
   estados: BasicTypeRes[];
+
   @ApiProperty({ type: BasicTypeRes, isArray: true })
   lineas: BasicTypeRes[];
+
   @ApiProperty({ type: BasicTypeRes, isArray: true })
   prioridades: BasicTypeRes[];
+
+  @ApiProperty({ type: BasicTypeRes, isArray: true })
+  formasFarmaceuticas: BasicTypeRes[];
+
   @ApiProperty({ type: BasicTypeRes, isArray: true })
   tiemposAdministracion: BasicTypeRes[];
+
   @ApiProperty({ type: BasicTypeRes, isArray: true })
   unidades: BasicTypeRes[];
+
   @ApiProperty({ type: BasicTypeRes, isArray: true })
   vehiculos: BasicTypeRes[];
+
+  @ApiProperty({ type: BasicTypeRes, isArray: true })
+  vias: BasicTypeRes[];
+
   @ApiProperty({ type: BasicTypeRes, isArray: true })
   viasAdministracion: BasicTypeRes[];
 }

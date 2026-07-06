@@ -12,12 +12,14 @@ import {
 } from '../../infrastructure/services';
 import {
   ESTADOS_VALUES,
+  FORMAS_FARMACEUTICAS_VALUES,
   LINEAS_VALUES,
   PRIORIDADES_VALUES,
   TIEMPOS_ADMIN_VALUES,
   UNIDADES_VALUES,
   VehiculoType,
   VEHICULOS_VALUES,
+  VIAS_VALUES,
   VIAS_ADMINISTRACION_VALUES,
 } from '@inn/types/inn/central-mezclas';
 
@@ -37,9 +39,11 @@ export class RecursosController {
         { estados: ESTADOS_VALUES },
         { lineas: LINEAS_VALUES },
         { prioridades: PRIORIDADES_VALUES },
+        { formasFarmaceuticas: FORMAS_FARMACEUTICAS_VALUES },
         { tiemposAdministracion: TIEMPOS_ADMIN_VALUES },
         { unidades: UNIDADES_VALUES },
         { vehiculos: VEHICULOS_VALUES },
+        { vias: VIAS_VALUES },
         { viasAdministracion: VIAS_ADMINISTRACION_VALUES },
       ];
     } catch (error: any) {
