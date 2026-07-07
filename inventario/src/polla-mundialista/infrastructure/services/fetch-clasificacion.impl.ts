@@ -6,7 +6,7 @@ import {
 } from '@inn/polla-mundialista/application/responses';
 import { Injectable } from '@nestjs/common';
 import { calcularPuntosPronostico } from '../factories';
-import { orderBy } from 'lodash';
+import { orderBy, uniq } from 'lodash';
 import { _PrivSecEkUserOrm } from '@common/infrastructure/orm/ek-user.orm';
 import { In } from 'typeorm';
 import { UsuarioExternoOrm, UsuarioOrm } from '@inn/orm/gen';
@@ -26,8 +26,10 @@ export class FetchClasificacionImpl extends BaseSource {
     const usuariosIdsExternos = apuestas.filter(a => a.isExterno).map(a => a.usuarioId);
     const usuariosIdsDinamica = apuestas.filter(a => !a.isExterno).map(a => a.usuarioId);
 
-    const usuariosDinamica = await usuarioRp.find({ where: { id: In(usuariosIdsDinamica) } });
-    const usuariosExternos = await ekUsuarioRp.find({ where: { id: In(usuariosIdsExternos) } });
+    const usuariosDinamica = await usuarioRp.find({ where: { id: In(uniq(usuariosIdsDinamica)) } });
+    const usuariosExternos = await ekUsuarioRp.find({
+      where: { id: In(uniq(usuariosIdsExternos)) },
+    });
 
     apuestas.map(apuesta => {
       const partido = partidos.find(
