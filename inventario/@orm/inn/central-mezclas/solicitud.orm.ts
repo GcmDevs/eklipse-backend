@@ -18,8 +18,11 @@ export class SolicitudOrm {
   @PrimaryGeneratedColumn({ name: 'OID' })
   id: number;
 
-  @Column({ name: 'GENUSUEXT' })
+  @Column({ name: 'GENUSUARIO' })
   usuarioExternoId: number;
+
+  @Column({ name: 'ISEXTERNO' })
+  isExterno: boolean;
 
   @Column({ name: 'EKINNCTMZPACEXT' })
   pacienteExternoId: number;

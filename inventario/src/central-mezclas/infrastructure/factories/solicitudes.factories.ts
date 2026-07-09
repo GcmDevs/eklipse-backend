@@ -27,11 +27,13 @@ export const dataToSolicitudRes = (
       documento: usuarioExterno.cedula,
       nombreCompleto: usuarioExterno.nombreCompleto,
     },
-    usuarioResponsable: {
-      documento: data.usuarioResponsable.cedula,
-      nombreCompleto: data.usuarioResponsable.nombreCompleto,
-      observacion: data.usuResObs,
-    },
+    usuarioResponsable: data.usuarioResponsable
+      ? {
+          documento: data.usuarioResponsable.cedula,
+          nombreCompleto: data.usuarioResponsable.nombreCompleto,
+          observacion: data.usuResObs,
+        }
+      : null,
     pacienteExterno: {
       id: pacExt.id,
       nombreCompleto: pacExt.pacienteId ? pacExt.paciente.nombreCompleto : pacExt.nombreCompleto,
