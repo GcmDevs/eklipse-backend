@@ -66,7 +66,6 @@ export class CreateSolicitudImpl extends BaseSource {
         prioridadCode: payload.prioridadCode,
         fechaCreacion: new Date(),
         usuarioResponsableId: null,
-        usuResObs: null,
       });
 
       const savedSolicitud = await solicitudRp.save(solicitud);

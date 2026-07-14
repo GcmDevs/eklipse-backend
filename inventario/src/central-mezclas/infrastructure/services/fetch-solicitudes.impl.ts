@@ -15,7 +15,12 @@ export class FetchSolicitudesImpl extends BaseSource {
 
     const solicitudes = await solicitudRp.find({
       where: { fechaCreacion: Between(fechaInicio, fechaFin) },
-      relations: ['usuarioResponsable', 'seleccion', 'seleccion.medicamento'],
+      relations: [
+        'usuarioResponsable',
+        'seleccion',
+        'seleccion.medicamento',
+        'nutricionParenteral',
+      ],
     });
 
     const usuariosExternosIds: number[] = [0];

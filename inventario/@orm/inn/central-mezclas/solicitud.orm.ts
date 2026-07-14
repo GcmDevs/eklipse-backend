@@ -55,7 +55,4 @@ export class SolicitudOrm {
   @ManyToOne(() => UsuarioOrm)
   @JoinColumn({ name: 'GENUSUARIO1', referencedColumnName: 'id' })
   usuarioResponsable: UsuarioOrm;
-
-  @Column({ name: 'GENUSUOBS', length: 500, nullable: true })
-  usuResObs: string;
 }
